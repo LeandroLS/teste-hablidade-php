@@ -26,8 +26,9 @@ CREATE TABLE `answers` (
   `answers_id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(2) NOT NULL,
   `correct_answer` tinyint(4) NOT NULL DEFAULT '0',
+  `answer_description` varchar(255) NOT NULL,
   PRIMARY KEY (`answers_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +37,7 @@ CREATE TABLE `answers` (
 
 LOCK TABLES `answers` WRITE;
 /*!40000 ALTER TABLE `answers` DISABLE KEYS */;
+INSERT INTO `answers` VALUES (1,1,0,'(A) floats '),(2,1,1,'(B) integer '),(3,1,0,'(C) doubles '),(4,1,0,'(D) Real number'),(5,2,0,'(A) 4.5678 '),(6,2,0,'(B) 4.0 '),(7,2,0,'(C) 7e4 '),(8,2,1,'(D) Todas acima'),(9,3,0,'(A) Delimitado por aspas simples'),(10,3,0,'(B) Delimitado por aspas duplas'),(11,3,0,'(C) Delimitado por <<< identificador'),(12,3,1,'(D) Todas acima'),(13,4,0,'(A) Delimitado por aspas simples'),(14,4,0,'(B) Delimitado por aspas duplas'),(15,4,1,'(C) Delimitado por <<< identificador'),(16,4,0,'(D) Todas acima'),(17,5,0,'(A) Integer '),(18,5,0,'(B) Float '),(19,5,1,'(C) String '),(20,5,0,'(D) Booleans '),(21,6,0,'(A) Array '),(22,6,0,'(B) Objects '),(23,6,1,'(C) Both'),(24,6,0,'(D) None ');
 /*!40000 ALTER TABLE `answers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -48,7 +50,7 @@ DROP TABLE IF EXISTS `questions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `questions` (
   `question_id` int(11) NOT NULL AUTO_INCREMENT,
-  `questions_description` varchar(255) NOT NULL,
+  `question_description` varchar(255) NOT NULL,
   PRIMARY KEY (`question_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -72,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16 20:29:00
+-- Dump completed on 2018-05-18 16:32:52

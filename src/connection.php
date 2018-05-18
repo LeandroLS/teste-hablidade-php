@@ -1,7 +1,7 @@
 <?php
 
 $username = "root";
-$password = "123456";
+$password = "leandro";
 $database = "php_test_skill";
 $host = "127.0.0.1";
 $driver = "mysql";
@@ -9,5 +9,5 @@ $driver = "mysql";
 try {
     $connection = new PDO("{$driver}:dbname={$database};host={$host}", $username, $password);
 } catch(Exception $e){
-    echo $e;
+    echo 'Não foi possível conectar ao banco de dados, verifique as informações de conexão no arquivo php-teste-skill/src/connection.php';
 }
