@@ -1,13 +1,19 @@
 <?php 
 require 'connection.php';
 $query = "  SELECT 
-            q.*, GROUP_CONCAT(a.answer_description) AS answers
+            q.*, 
+            a.*,
+            GROUP_CONCAT(a.answer_description) AS answers
             FROM
             questions AS q
                 INNER JOIN
             answers AS a ON a.question_id = q.question_id
             GROUP BY q.question_description
             ORDER BY q.question_id";
+       
+$answers = "SELECT * FROM answers";       
+
+$answers = $connection->query($answers);
 
 $questions = $connection->query($query);
 ?>
@@ -31,16 +37,25 @@ $questions = $connection->query($query);
                         <tr>
                             <td><?= utf8_encode($question['question_description']) ?></td> 
                         </tr>
-                        <?php $answers = explode(',', $question['answers']); ?>
-                        <?php foreach($answers as $answer): ?>
-                            <tr>
-                                <td><input type="radio" name="question_id" id=""><?= $answer ?></td>
-                            </tr>
+                        <?php foreach($answers as $k => $answer): ?>
+                        <?php echo $k ?>
+                            <?php if($answer['question_id'] == $question['question_id']): ?>
+                            <td><?= utf8_encode($answer['answer_description']) ?></td> 
+                            <?php else: ?>
+                            <?php echo 'não é igual' ?>
+                            <?php endif ?>
                         <?php endforeach ?>
+                        <?php // $answers = explode(',', $question['answers']); ?>
+                        <?php //foreach($answers as $answer): ?>
+                            <!-- <tr>
+                                <td><input type="radio" name="question_id=<?= $question['question_id'] ?>" value="<?= $answer['answer_id'] ?>"><?= $answer ?></td>
+                            </tr> -->
+                        <?php //endforeach ?>
                     </tbody>
                 </table>
             </fieldset>
         <?php endforeach; ?>
+        <button class="btn btn-primary">Enviar Respostas</button>
     </div>
 </body>
 </html>

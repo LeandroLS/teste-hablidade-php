@@ -1,8 +1,8 @@
 <?php
 
 $username = "root";
-$password = "leandro";
-$database = "php_test_skill";
+$password = "123456";
+$database = "teste_habilidade_php";
 $host = "127.0.0.1";
 $driver = "mysql";
 
