@@ -19,7 +19,7 @@ $dbresult = $connection->query('select * from questions');
             <tbody>
                 <?php foreach($dbresult as $result): ?>
                 <tr>
-                    <td><?= utf8_encode($result['questions_description']) ?></td> 
+                    <td><?= utf8_encode($result['question_description']) ?></td> 
                 </tr>
                 <?php endforeach; ?>
             </tbody>
