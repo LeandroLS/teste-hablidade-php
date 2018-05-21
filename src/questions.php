@@ -1,6 +1,15 @@
 <?php 
 require 'connection.php';
-$dbresult = $connection->query('select * from questions');
+$query = "  SELECT 
+            q.*, GROUP_CONCAT(a.answer_description) AS answers
+            FROM
+            questions AS q
+                INNER JOIN
+            answers AS a ON a.question_id = q.question_id
+            GROUP BY q.question_description
+            ORDER BY q.question_id";
+
+$questions = $connection->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -12,18 +21,26 @@ $dbresult = $connection->query('select * from questions');
 </head>
 <body>
     <div class="container">
-        <table class="table table-hover table-striped">
-            <thead>
-                <th>Questões</th>
-            </thead>
-            <tbody>
-                <?php foreach($dbresult as $result): ?>
-                <tr>
-                    <td><?= utf8_encode($result['question_description']) ?></td> 
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <?php foreach($questions as $question): ?>
+            <fieldset class="border" style="margin-bottom:10px">
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <th>Questão <?= $question['question_id']?></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><?= utf8_encode($question['question_description']) ?></td> 
+                        </tr>
+                        <?php $answers = explode(',', $question['answers']); ?>
+                        <?php foreach($answers as $answer): ?>
+                            <tr>
+                                <td><input type="radio" name="question_id" id=""><?= $answer ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </fieldset>
+        <?php endforeach; ?>
     </div>
 </body>
 </html>
