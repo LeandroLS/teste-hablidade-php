@@ -1,21 +1,21 @@
 <?php 
 require 'connection.php';
-$query = "  SELECT 
-            q.*, 
-            a.*,
-            GROUP_CONCAT(a.answer_description) AS answers
-            FROM
-            questions AS q
-                INNER JOIN
-            answers AS a ON a.question_id = q.question_id
-            GROUP BY q.question_description
-            ORDER BY q.question_id";
-       
-$answers = "SELECT * FROM answers";       
 
-$answers = $connection->query($answers);
+$answersQuery = "SELECT * FROM answers";    
 
-$questions = $connection->query($query);
+$answers = $connection->query($answersQuery);
+
+$answers->execute();
+
+$answers = $answers->fetchAll();
+
+$questionsQuery = "SELECT * FROM questions";
+
+$questions = $connection->query($questionsQuery);
+
+$questions->execute();
+
+$questions = $questions->fetchAll(); 
 ?>
 
 <!DOCTYPE html>
@@ -38,19 +38,12 @@ $questions = $connection->query($query);
                             <td><?= utf8_encode($question['question_description']) ?></td> 
                         </tr>
                         <?php foreach($answers as $k => $answer): ?>
-                        <?php echo $k ?>
-                            <?php if($answer['question_id'] == $question['question_id']): ?>
-                            <td><?= utf8_encode($answer['answer_description']) ?></td> 
-                            <?php else: ?>
-                            <?php echo 'não é igual' ?>
-                            <?php endif ?>
+                            <tr>
+                                <?php if($answer['question_id'] == $question['question_id']): ?>
+                                    <td><?= utf8_encode($answer['answer_description']) ?></td> 
+                                <?php endif ?>
+                            </tr>
                         <?php endforeach ?>
-                        <?php // $answers = explode(',', $question['answers']); ?>
-                        <?php //foreach($answers as $answer): ?>
-                            <!-- <tr>
-                                <td><input type="radio" name="question_id=<?= $question['question_id'] ?>" value="<?= $answer['answer_id'] ?>"><?= $answer ?></td>
-                            </tr> -->
-                        <?php //endforeach ?>
                     </tbody>
                 </table>
             </fieldset>
