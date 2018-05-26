@@ -21,6 +21,7 @@ $questions = $questions->fetchAll();
     </head>
     <body>
         <div class="container">
+            <h1 class="text-center text-primary">Questionário</h1>
             <form action="result_test.php" method="post">
             <?php foreach($questions as $question): ?>
                 <fieldset class="border" style="margin-bottom:10px">
@@ -36,7 +37,7 @@ $questions = $questions->fetchAll();
                                 <tr>
                                     <?php if($answer['question_id'] == $question['question_id']): ?>
                                         <td>
-                                            <input type="radio" name="<?= $question['question_id'] ?>" value="<?= $answer['correct_answer'] ?>">
+                                            <input type="radio" name="<?= $question['question_id'] ?>" value="<?= $answer['answer_id'] ?>">
                                             <?= utf8_encode($answer['answer_description']) ?>
                                         </td> 
                                     <?php endif ?>
