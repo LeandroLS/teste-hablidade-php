@@ -1,12 +1,13 @@
 <?php
 require 'connection.php';
+require 'links_externos/links.php';
 
-$correctAnswersQuery = "SELECT * FROM answers";
+$correctAnswersQuery = "SELECT * FROM answers_1";
 $answers = $connection->query($correctAnswersQuery);
 $answers->execute();
 $answers = $answers->fetchAll();
 
-$questionsQuery = "SELECT * FROM questions";
+$questionsQuery = "SELECT * FROM questions_1";
 $questions = $connection->query($questionsQuery);
 $numQuestions = $questions->rowCount();
 $questions->execute();
@@ -21,9 +22,7 @@ $numCorrectAnswer = 0;
     <head>
         <meta charset="UTF-8">
         <title>Teste de Habilidade PHP</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+       
     </head>
     <body>
         <div class="container">

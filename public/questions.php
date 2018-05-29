@@ -1,15 +1,16 @@
 <?php 
 require 'connection.php';
+require 'links_externos/links.php';
 
-$answersQuery = "SELECT * FROM answers";    
-$answers = $connection->query($answersQuery);
-$answers->execute();
-$answers = $answers->fetchAll();
+// $answersQuery = "SELECT * FROM answers_1";    
+// $answers = $connection->query($answersQuery);
+// $answers->execute();
+// $answers = $answers->fetchAll();
 
-$questionsQuery = "SELECT * FROM questions";
-$questions = $connection->query($questionsQuery);
-$questions->execute();
-$questions = $questions->fetchAll(); 
+// $questionsQuery = "SELECT * FROM questions_1";
+// $questions = $connection->query($questionsQuery);
+// $questions->execute();
+// $questions = $questions->fetchAll(); 
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,6 @@ $questions = $questions->fetchAll();
     <head>
         <meta charset="UTF-8">
         <title>Teste de Habilidade PHP</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
         <div class="container">
