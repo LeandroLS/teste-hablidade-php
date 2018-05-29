@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
--- Host: localhost    Database: php_test_skill
+-- Host: localhost    Database: php_teste_habilidade
 -- ------------------------------------------------------
 -- Server version	5.7.22-0ubuntu0.16.04.1
 
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `answers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `answers` (
-  `answers_id` int(11) NOT NULL AUTO_INCREMENT,
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT,
   `question_id` int(2) NOT NULL,
   `correct_answer` tinyint(4) NOT NULL DEFAULT '0',
   `answer_description` varchar(255) NOT NULL,
-  PRIMARY KEY (`answers_id`)
+  PRIMARY KEY (`answer_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -74,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-21 11:48:15
+-- Dump completed on 2018-05-29 16:30:33

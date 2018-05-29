@@ -8,11 +8,11 @@ $answers = $answers->fetchAll();
 
 $questionsQuery = "SELECT * FROM questions";
 $questions = $connection->query($questionsQuery);
+$numQuestions = $questions->rowCount();
 $questions->execute();
 $questions = $questions->fetchAll(); 
 
 $numCorrectAnswer = 0;
-$numAswners = 20;
 
 ?>
 
@@ -28,11 +28,15 @@ $numAswners = 20;
     <body>
         <div class="container">
             <h1 class="text-primary text-center">Resultado do Questionário</h1>
-            <div style="height:400px">
+            <div style="height:350px">
                 <canvas id="myChart"></canvas>
             </div>
-            <form action="result_test.php" method="post">
-            <?php foreach($questions as $key => $question): ?>
+            <div>
+                <button class="btn btn-primary d-print-none" style="margin-bottom:5px" onclick="window.print()">
+                    <i class="fas fa-print "></i>
+                </button>
+            </div>
+            <?php foreach($questions as $question): ?>
                 <fieldset class="border" style="margin-bottom:10px">
                     <table class="table table-hover table-striped">
                         <thead>
@@ -55,6 +59,7 @@ $numAswners = 20;
 
                             <!-- foreach mostrando as respostas corretas -->
                             <?php foreach($answers as $answer): ?>
+                               
                                 <?php if($answer['question_id'] == $question['question_id'] && $answer['correct_answer'] == 1): ?>
                                     <tr>
                                         <td>
@@ -86,22 +91,21 @@ $numAswners = 20;
                     </table>
                 </fieldset>
             <?php endforeach; ?>
-            <button class="btn btn-primary">Enviar Respostas</button>
-            </form>
         </div>
     </body>
    
-    <?php $charWrongAnswer = $numAswners - $numCorrectAnswer ?>
+    <?php $chartWrongAnswer = $numQuestions - $numCorrectAnswer ?>
 
 </html>
 <script>
+    // gráfico pizza
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: ["Corretas", "Erradas"],
             datasets: [{
-                data: [<?= $numCorrectAnswer ?>, <?= $charWrongAnswer ?>],
+                data: [<?= $numCorrectAnswer ?>, <?= $chartWrongAnswer ?>],
                 backgroundColor: [
                     'rgba(0, 168, 11, 0.5)',
                     'rgba(255,0,0, 0.5)'
