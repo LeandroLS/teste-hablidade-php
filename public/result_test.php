@@ -26,14 +26,21 @@ $numCorrectAnswer = 0;
     </head>
     <body>
         <div class="container">
+        
             <h1 class="text-primary text-center">Resultado do Questionário</h1>
             <div style="height:350px">
                 <canvas id="myChart"></canvas>
             </div>
             <div>
-                <button class="btn btn-primary d-print-none" style="margin-bottom:5px" onclick="window.print()">
+                <button class="btn btn-primary d-print-none" title="Imprimir" style="margin-bottom:5px" onclick="window.print()">
                     <i class="fas fa-print "></i>
                 </button>
+                <a class="btn btn-warning d-print-none" href="index.php" title="Ir para o início" style="margin-bottom:5px">
+                    <i class="fas fa-home"></i>
+                </a>
+            </div>
+            <div>
+                
             </div>
             <?php foreach($questions as $question): ?>
                 <fieldset class="border" style="margin-bottom:10px">

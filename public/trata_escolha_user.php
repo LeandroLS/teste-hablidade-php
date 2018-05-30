@@ -1,5 +1,6 @@
 <?php
 require 'connection.php';
+session_start();
 
 $tableAnswers = '';
 $tableQuestions = '';
@@ -16,10 +17,13 @@ $answersQuery = "SELECT * FROM {$tableAnswers}";
 $answers = $connection->query($answersQuery);
 $answers->execute();
 $answers = $answers->fetchAll();
+$_SESSION['answers'] = $answers;
 
 $questionsQuery = "SELECT * FROM {$tableQuestions}";
 $questions = $connection->query($questionsQuery);
 $questions->execute();
-$questions = $questions->fetchAll(); 
+$_SESSION['numQuestions'] = $questions->rowCount(); 
+$questions = $questions->fetchAll();
+$_SESSION['questions'] = $questions;
 
 header("Location: questions.php");

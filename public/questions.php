@@ -1,16 +1,9 @@
 <?php 
 require 'connection.php';
 require 'links_externos/links.php';
-
-// $answersQuery = "SELECT * FROM answers_1";    
-// $answers = $connection->query($answersQuery);
-// $answers->execute();
-// $answers = $answers->fetchAll();
-
-// $questionsQuery = "SELECT * FROM questions_1";
-// $questions = $connection->query($questionsQuery);
-// $questions->execute();
-// $questions = $questions->fetchAll(); 
+session_start();
+$questions = $_SESSION['questions'];
+$answers = $_SESSION['answers'];
 ?>
 
 <!DOCTYPE html>
