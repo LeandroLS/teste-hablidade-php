@@ -1,18 +1,11 @@
 <?php
 require 'connection.php';
 require 'links_externos/links.php';
+session_start();
 
-$correctAnswersQuery = "SELECT * FROM answers_1";
-$answers = $connection->query($correctAnswersQuery);
-$answers->execute();
-$answers = $answers->fetchAll();
-
-$questionsQuery = "SELECT * FROM questions_1";
-$questions = $connection->query($questionsQuery);
-$numQuestions = $questions->rowCount();
-$questions->execute();
-$questions = $questions->fetchAll(); 
-
+$answers = $_SESSION['answers']; 
+$questions = $_SESSION['questions']; 
+$numQuestions = $_SESSION['numQuestions']; 
 $numCorrectAnswer = 0;
 
 ?>
