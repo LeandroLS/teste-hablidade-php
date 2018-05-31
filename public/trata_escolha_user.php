@@ -35,6 +35,4 @@ function escolheTestePHP(){
 if(isset($_GET['teste_num'])){
     escolheTestePHP();
     header("Location: questions.php");
-} else {
-    header("Location: result_test.php");
 }

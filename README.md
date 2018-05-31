@@ -1,3 +1,3 @@
-# php-test-skill
+# teste-habilidade-php
 
-Esse repositório contem algumas perguntas em PHP pra você testar seu conhecimento em PHP.
+Esse repositório contem algumas perguntas em PHP pra você testar seu conhecimento.
