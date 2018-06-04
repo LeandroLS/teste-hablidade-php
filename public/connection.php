@@ -2,15 +2,9 @@
 
 $username = "root";
 $password = "123456";
-$database = "teste_habilidade_php";
+$database = "";
 $host = "127.0.0.1";
 $driver = "mysql";
-
-//$username = "root";
-//$password = "leandro";
-//$database = "php_teste_habilidade";
-//$host = "127.0.0.1";
-//$driver = "mysql";
 
 try {
     $connection = new PDO("{$driver}:dbname={$database};host={$host}", $username, $password);
