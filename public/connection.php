@@ -2,7 +2,7 @@
 
 $username = "root";
 $password = "123456";
-$database = "";
+$database = "testes2";
 $host = "127.0.0.1";
 $driver = "mysql";
 

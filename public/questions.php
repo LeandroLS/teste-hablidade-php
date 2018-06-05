@@ -24,7 +24,7 @@ $answers = $_SESSION['answers'];
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><?= utf8_encode($question['question_description']) ?></td> 
+                                    <td><?= nl2br(utf8_encode($question['question_description'])) ?></td> 
                                 </tr>
                                 <?php foreach($answers as $k => $answer): ?>
                                     <tr>
