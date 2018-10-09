@@ -24,14 +24,14 @@ $answers = $_SESSION['answers'];
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><?= nl2br(utf8_encode($question['question_description'])) ?></td> 
+                                    <td><?= nl2br($question['question_description']) ?></td> 
                                 </tr>
                                 <?php foreach($answers as $k => $answer): ?>
                                     <tr>
                                         <?php if($answer['question_id'] == $question['question_id']): ?>
                                             <td>
                                                 <input type="radio" name="<?= $question['question_id'] ?>" value="<?= $answer['answer_id'] ?>">
-                                                <?= utf8_encode($answer['answer_description']) ?>
+                                                <?= $answer['answer_description'] ?>
                                             </td> 
                                         <?php endif ?>
                                     </tr>
