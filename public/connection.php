@@ -3,7 +3,7 @@
 $username = "root";
 $password = "123456";
 $database = "teste_habilidade_php";
-$host = "localhost";
+$host = "0.0.0.0";
 $driver = "mysql";
 
 try {
