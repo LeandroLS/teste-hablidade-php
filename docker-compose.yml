@@ -12,17 +12,18 @@ services:
     networks:
       - my_net
   mysql:
-    image: mysql:8
+    container_name: mysql
+    image: mysql:5.7
     ports:
-      - "3307:3306"
+      - "3308:3306"
+    volumes:
+      - ./database_seed/teste_habilidade_php.sql:/docker-entrypoint-initdb.d/teste_habilidade_php.sql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: teste_habilidade_php
-      MYSQL_USER: root
       MYSQL_PASSWORD: 123456
     networks:
       - my_net
 networks:
   my_net:
     driver: bridge
-
