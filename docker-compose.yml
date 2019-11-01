@@ -20,7 +20,8 @@ services:
       MYSQL_DATABASE: teste_habilidade_php
       MYSQL_USER: root
       MYSQL_PASSWORD: 123456
-
+    networks:
+      - my_net
 networks:
   my_net:
     driver: bridge
