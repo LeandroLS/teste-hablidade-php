@@ -1,5 +1,6 @@
 <?php
-require 'public/links_externos/links.php'; ?>
+require 'public/links_externos/links.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,8 +16,8 @@ require 'public/links_externos/links.php'; ?>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">PHP Teste 1</h5>
-                        <p class="card-text">20 questões de nível fácil.</p>
-                        <a href="public/trata_escolha_user.php?teste_num=1" class="btn btn-primary"><i class="fas fa-play"></i></a>
+                        <p class="card-text">18 questões de nível fácil.</p>
+                        <a href="questions.php?teste_num=1" class="btn btn-primary"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -25,7 +26,7 @@ require 'public/links_externos/links.php'; ?>
                     <div class="card-body">
                         <h5 class="card-title">PHP Teste 2</h5>
                         <p class="card-text">10 questões de nível fácil</p>
-                        <a href="public/trata_escolha_user.php?teste_num=2" class="btn btn-primary"><i class="fas fa-play"></i></a>
+                        <a href="questions.php?teste_num=2" class="btn btn-primary"><i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>

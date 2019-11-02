@@ -1,9 +1,7 @@
 <?php
-require 'connection.php';
-require 'links_externos/links.php';
-session_start();
-$questions = $_SESSION['questions'];
-$answers = $_SESSION['answers'];
+require_once 'connection.php';
+require_once 'querys.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -11,13 +9,14 @@ $answers = $_SESSION['answers'];
 
 <head>
     <meta charset="UTF-8">
+    <?php require 'public/links_externos/links.php'; ?> 
     <title>Teste de Habilidade PHP</title>
 </head>
 
 <body>
     <div class="container">
         <h1 class="text-center text-primary">Questionário</h1>
-        <form action="result_test.php" method="post">
+        <form action="<?php echo 'result_test.php?teste_num=' . $_GET['teste_num'] ?>" method="post">
             <?php foreach ($questions as $question) : ?>
                 <fieldset class="border" style="margin-bottom:10px">
                     <table class="table table-hover table-striped">

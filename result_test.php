@@ -1,11 +1,7 @@
 <?php
-require 'connection.php';
-require 'links_externos/links.php';
-session_start();
-
-$answers = $_SESSION['answers']; 
-$questions = $_SESSION['questions']; 
-$numQuestions = $_SESSION['numQuestions']; 
+require_once 'connection.php';
+require_once 'querys.php';
+ 
 $numCorrectAnswer = 0;
 
 ?>
@@ -15,7 +11,7 @@ $numCorrectAnswer = 0;
     <head>
         <meta charset="UTF-8">
         <title>Teste de Habilidade PHP</title>
-       
+       <?php require 'public/links_externos/links.php'; ?>
     </head>
     <body>
         <div class="container">
