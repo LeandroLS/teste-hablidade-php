@@ -12,6 +12,6 @@ Esse projeto contem alguns questionários em PHP pra você testar seu conhecimen
 4. No seu navegador: localhost:8081
 
 ### Como usar com Docker Compose
-1. Acesse a raiz do projeto.
+1. Acesse a raiz do projeto através do terminal.
 2. Rode o comando ```docker-compose up```
 3. No seu navegador: localhost:8081
